@@ -28,7 +28,7 @@ console.log(`Bonus: $${calculateBonus(7000, "Good")}`)
 
 
 //Task 4: Parameters and Arguments
- const calculateSubscriptionCost = (plan, months, discount = 0) =>   //Write an arrow function to calculate the subscription cost with a default discount parameter of 0
+ const calculateSubscriptionCost  =(plan, months, discount = 0) =>   //Write an arrow function to calculate the subscription cost with a default discount parameter of 0
     plan === "Basic" ? ((months*10) - discount):  //is subscription "basic", yes then calculate total - discount
     plan === "Premium" ? ((months*20) - discount):  //is subscription "premium", yes then calculate total - discount
     plan === "Enterprise" ? ((months*50) - discount):  //is subscription "enterprise", yes then calculate total - discount
@@ -50,6 +50,20 @@ console.log(`Converted Amount: $${convertCurrency(250, 0.85)}`)
 let orders = [200, 600, 1200, 450, 800]  //Declare an array oforders with at least 5 order amounts
 
 function applyBulkDiscount(orders, discountFunction){
-    return orders.map(discountFunction);  //higher-order function that applies what the dicountfunction states when the applyBulkDiscount function is called
+    return orders.map(discountFunction);  //Higher-order function that applies what the dicountfunction states when the applyBulkDiscount function is called
 }
-console.log(applyBulkDiscount(orders, (amount => amount > 500 ? amount*0.9: amount)))  //call the function and plug in the orders from the array and plug in the function for the discountfunction in the applyBulkDiscount functions 
+console.log(applyBulkDiscount(orders, (amount => amount > 500 ? amount*0.9: amount)))  //Call the function and plug in the orders from the array and plug in the function for the discountfunction in the applyBulkDiscount functions 
+
+
+//Task 7: Closures
+totalExpenses = 0   //Establish the beginning total as 0 to add to it
+function createExpenseTracker(){  //Write a function that returns another function to add expenses and keep a running total
+    return function(expenses) {
+        totalExpenses += expenses;  //The function adds new expenses to the total 
+        return totalExpenses;  //Returns the total after adding
+    };
+}
+
+let tracker = createExpenseTracker();
+console.log(`Total Expenses: $${tracker(200)}`)  //Plug in the new expense into the expense tracker and runs it through the adding function to keep a running total 
+console.log(`Total Expenses: $${tracker(150)}`)
