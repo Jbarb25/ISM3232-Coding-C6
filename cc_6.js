@@ -36,3 +36,12 @@ console.log(`Bonus: $${calculateBonus(7000, "Good")}`)
 
 console.log(`Total Cost: $${calculateSubscriptionCost("Basic", 6, 10)}`) //Call the arrow function and plug in the plan type, months, and discount if any
 console.log(`Total Cost: $${calculateSubscriptionCost("Premium", 12, 0)}`)
+
+
+//Task 5: Returning Values
+function convertCurrency(amount, exchangeRate){
+    return amount*exchangeRate}  //Write a function that returns the converted amount after calculating the conversion
+
+console.log(`Converted Amount: $${convertCurrency(100, 1.1)}`) //Call the function, plug in the values to convert, and return the converted currency
+console.log(`Converted Amount: $${convertCurrency(250, 0.85)}`)
+
