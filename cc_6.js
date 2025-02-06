@@ -45,3 +45,11 @@ function convertCurrency(amount, exchangeRate){
 console.log(`Converted Amount: $${convertCurrency(100, 1.1)}`) //Call the function, plug in the values to convert, and return the converted currency
 console.log(`Converted Amount: $${convertCurrency(250, 0.85)}`)
 
+
+//Task 6: Higher-Order Function
+let orders = [200, 600, 1200, 450, 800]  //Declare an array oforders with at least 5 order amounts
+
+function applyBulkDiscount(orders, discountFunction){
+    return orders.map(discountFunction);  //higher-order function that applies what the dicountfunction states when the applyBulkDiscount function is called
+}
+console.log(applyBulkDiscount(orders, (amount => amount > 500 ? amount*0.9: amount)))  //call the function and plug in the orders from the array and plug in the function for the discountfunction in the applyBulkDiscount functions 
