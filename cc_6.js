@@ -25,3 +25,14 @@ const calculateBonus = (salary, performanceRating) =>  //Write an arrow function
 
 console.log(`Bonus: $${calculateBonus(5000, "Excellent")}`)  //Call the arrow function and plug in the salary and performance rating
 console.log(`Bonus: $${calculateBonus(7000, "Good")}`)
+
+
+//Task 4: Parameters and Arguments
+ const calculateSubscriptionCost = (plan, months, discount = 0) =>   //Write an arrow function to calculate the subscription cost with a default discount parameter of 0
+    plan === "Basic" ? ((months*10) - discount):  //is subscription "basic", yes then calculate total - discount
+    plan === "Premium" ? ((months*20) - discount):  //is subscription "premium", yes then calculate total - discount
+    plan === "Enterprise" ? ((months*50) - discount):  //is subscription "enterprise", yes then calculate total - discount
+    0;
+
+console.log(`Total Cost: $${calculateSubscriptionCost("Basic", 6, 10)}`) //Call the arrow function and plug in the plan type, months, and discount if any
+console.log(`Total Cost: $${calculateSubscriptionCost("Premium", 12, 0)}`)
