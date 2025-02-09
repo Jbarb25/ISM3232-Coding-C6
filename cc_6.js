@@ -74,9 +74,8 @@ function calculateYearsToPromotion(employeeLevel) {  //Write a recursive functio
     if (employeeLevel >= 10) { //if employee is already a level 10 or higher, the function will show 0 years
         return 0;
     } else {
-    let yearsWorked = 20 - (employeeLevel*2);  //if the employee is not a level 10, the funtion will continue to this calculation that returns the years left until level 10
-    return yearsWorked;}
-}
+    return calculateYearsToPromotion(employeeLevel +1) +2;   //if employee is not level 10, the function will run and add another level until it reaches 10 while also adding 2 more years for each level
+}}
 
 console.log(`Years to level 10: ${calculateYearsToPromotion(7)}`)
 console.log(`Years to level 10: ${calculateYearsToPromotion(5)}`)
